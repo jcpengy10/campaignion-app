@@ -1,0 +1,24 @@
+packages:
+  __APP_PACKAGE__:
+    license: Apache-2.0
+    actions:
+      campaign-standard:
+        function: actions/campaign-standard/index.js
+        web: 'yes'
+        runtime: 'nodejs:10'
+        inputs:
+          LOG_LEVEL: debug
+          tenant: $CAMPAIGN_STANDARD_TENANT
+          apiKey: $CAMPAIGN_STANDARD_API_KEY
+        annotations:
+          require-adobe-auth: true
+          final: true
+      generic:
+        function: actions/generic/index.js
+        web: 'yes'
+        runtime: 'nodejs:10'
+        inputs:
+          LOG_LEVEL: debug
+        annotations:
+          require-adobe-auth: true
+          final: true
